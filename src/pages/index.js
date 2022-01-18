@@ -12,7 +12,14 @@ const IndexPage = ({ serverData }) => {
 
   console.log(serverData)
 
-  return <Fragment>{/* <PostList pages={edges} /> */}hello</Fragment>
+  return (
+    <Fragment>
+      {/* <PostList pages={edges} /> */}
+      {serverData.results.map(r => (
+        <div key={r.id}>{r.id}</div>
+      ))}
+    </Fragment>
+  )
 }
 
 export default IndexPage
