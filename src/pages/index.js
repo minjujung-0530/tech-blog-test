@@ -1,12 +1,17 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import PostList from "../components/Main/PostList"
+import { sourceNodes } from "gatsby-source-notion-api/gatsby-node"
 
 const IndexPage = () => {
   const {
     allNotion: { edges },
   } = useStaticQuery(query)
+
+  useEffect(async () => {
+    await sourceNodes()
+  }, [])
 
   return (
     <>
