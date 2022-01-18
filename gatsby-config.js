@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -37,8 +41,8 @@ module.exports = {
     {
       resolve: `gatsby-source-notion-api`,
       options: {
-        token: "secret_LP9YjD3KhbXMQRz6CgpKJotwc5CcfoyUATqk5kEFaB9",
-        databaseId: "f66491ca3532448287a3f6015ec5cd55",
+        token: process.env.NOTION_INTEGRATION_TOKEN,
+        databaseId: process.env.NOTION_DATABASE_ID,
         propsToFrontmatter: true,
         lowerTitleLevel: true,
       },
