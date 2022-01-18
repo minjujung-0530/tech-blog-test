@@ -21,21 +21,12 @@ const PostList = ({ pages }) => {
   return (
     <>
       {pageList.map(
-        ({
-          frontmatter: {
-            author,
-            date: { start },
-            tag,
-            title,
-          },
-          fields,
-          id,
-        }) => (
+        ({ frontmatter: { author, date, tag, title }, fields, id }) => (
           <Link key={id} to={fields.slug.title}>
             <h3>{title}</h3>
             <PostAuthor authors={author} />
             <PostTag tags={tag} />
-            <p>{start}</p>
+            <p>{date && date.start}</p>
           </Link>
         )
       )}
